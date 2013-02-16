@@ -1,0 +1,16 @@
+Current Release notes and TODO list, as of 15 Feb 2013:
+
+The 2.7.3 spec file has been tested on Centos 6.2 and 6.3, and RHEL 6.1.
+
+The 2 'Provides abi' lines are the only bits that are actually required by the upgrade to Centos 6.  The #! fixup for python2.7-config was needed.
+
+'tk-devel' is not required to build 3 of 4 of the rpms in the python spec file, but you should install it if you want to build the tkinter rpm.
+
+Watch out for the QA_RPATHS=0x0001 thing, as described in this HOWTO: http://blog.milford.io/2012/01/building-and-installing-python-2-7-rpms-on-centos-5-7.
+
+If you install python and python-tkinter in one command, e.g. 'rpm -Uvh', they will install and work.  However, if you install 'python' only first, then 'python-tkinter' afterwards, rpm will fail complaining of duplicate files.
+
+The file lists include both files and directories and give 'File listed twice' warnings.  This should probably be cleaned up at some point.
+
+
+
